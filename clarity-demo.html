@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clarity Demo Sandbox</title>
+
+  <!-- Microsoft Clarity tracking script -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "YOUR_PROJECT_ID");  <!-- ← replace with your real Project ID -->
+  </script>
+
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 600px; margin: 40px auto; padding: 20px; }
+    input, button { display: block; width: 100%; margin: 10px 0; padding: 12px; font-size: 16px; }
+    button { background: #0078d4; color: white; border: none; cursor: pointer; border-radius: 4px; }
+    button:hover { background: #106ebe; }
+    .rage-btn { background: #d13438; }
+    .info { background: #f3f2f1; padding: 15px; border-radius: 6px; margin-bottom: 20px; }
+  </style>
+</head>
+<body>
+
+  <h1>Clarity Demo Sandbox</h1>
+
+  <div class="info">
+    <strong>How to demo:</strong><br>
+    1. Click the red button 8–10 times quickly → Rage Click<br>
+    2. Type something in the fields → inputs are masked<br>
+    3. Wait 2–3 minutes and open your Clarity dashboard
+  </div>
+
+  <!-- Form fields (Clarity masks these by default) -->
+  <label>Email</label>
+  <input type="email" id="email" placeholder="you@example.com" value="demo.user@company.com">
+
+  <label>Password</label>
+  <input type="password" id="password" placeholder="••••••••">
+
+  <label>Name</label>
+  <input type="text" id="name" placeholder="Your name" value="Savannah Credit User">
+
+  <!-- Buttons -->
+  <button onclick="submitForm()">Submit Form</button>
+  <button class="rage-btn" onclick="rageClick()">Click me many times (Rage Click)</button>
+
+  <script>
+    // Set custom tags so you can filter by them later
+    if (window.clarity) {
+      clarity("set", "Tenant", "Savannah Credit");
+      clarity("set", "User_Email", "demo.user@company.com");
+      clarity("set", "Environment", "Demo Sandbox");
+    }
+
+    function submitForm() {
+      alert("Form submitted (nothing really happens – this is just a demo)");
+    }
+
+    function rageClick() {
+      // Just a visual feedback so you know you clicked
+      console.log("Rage click!");
+    }
+  </script>
+
+</body>
+</html>
